@@ -19,7 +19,8 @@ WORKDIR /opt/copyparty
 
 # Copy run script
 COPY run.sh /run.sh
-RUN chmod a+x /run.sh
+RUN chmod a+x /run.sh && \
+    chown copyparty:copyparty /run.sh
 
 # Expose port
 EXPOSE 8080
