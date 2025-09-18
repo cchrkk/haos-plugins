@@ -30,6 +30,5 @@
     "config_folder": "str",
     "admin_user": "str",
     "admin_password": "str"
-  },
-  "image": "copyparty"
+  }
 }

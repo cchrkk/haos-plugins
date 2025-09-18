@@ -52,3 +52,4 @@ Per testare l'addon:
 - Le cartelle condivise devono essere accessibili da Home Assistant (es. /share, /config, /media)
 - Il file di configurazione viene generato automaticamente al primo avvio se non esiste
 - Le modifiche ai file condivisi saranno sincronizzate con le cartelle di Home Assistant
+- L'immagine Docker viene costruita localmente dal Dockerfile incluso nell'addon, non viene scaricata da un registry esterno
