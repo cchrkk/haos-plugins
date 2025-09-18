@@ -12,7 +12,7 @@ RUN addgroup -g 1000 copyparty \
 # Install copyparty
 RUN git clone https://github.com/9001/copyparty.git /opt/copyparty \
     && cd /opt/copyparty \
-    && pip install -r requirements.txt
+    && pip install .
 
 # Set working directory
 WORKDIR /opt/copyparty
