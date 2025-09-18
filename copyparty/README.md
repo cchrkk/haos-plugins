@@ -22,7 +22,6 @@ CopyParty è un server web leggero e versatile che permette di condividere file 
 L'addon può essere configurato attraverso l'interfaccia di Home Assistant con le seguenti opzioni:
 
 - `log_level`: Livello di log dell'addon (default: info)
-- `shared_folders`: Lista delle cartelle da condividere (default: [/share/copyparty/data])
 - `config_folder`: Cartella dove salvare il file di configurazione (default: /share/copyparty/config)
 - `admin_user`: Nome utente dell'amministratore (default: admin)
 - `admin_password`: Password dell'amministratore (default: password)
@@ -35,6 +34,11 @@ Dopo l'avvio dell'addon, l'interfaccia web di CopyParty sarà accessibile in due
 2. Attraverso ingress (se abilitato): `http://<home_assistant_ip>:<port>/addon/<slug>/`
 
 Puoi accedere con le credenziali dell'utente admin configurate nelle opzioni dell'addon.
+
+L'addon espone automaticamente le seguenti cartelle di Home Assistant attraverso l'interfaccia web di CopyParty:
+- `/homeassistant` - La directory principale di Home Assistant
+- `/addons` - La directory degli addon
+- `/addon_configs` - La directory delle configurazioni degli addon
 
 ## Testing
 
@@ -49,7 +53,7 @@ Per testare l'addon:
 
 ## Note
 
-- Le cartelle condivise devono essere accessibili da Home Assistant (es. /share, /config, /media)
+- L'addon espone automaticamente le cartelle `/homeassistant`, `/addons` e `/addon_configs` di Home Assistant
 - Il file di configurazione viene generato automaticamente al primo avvio se non esiste
 - Le modifiche ai file condivisi saranno sincronizzate con le cartelle di Home Assistant
 - L'immagine Docker viene costruita localmente dal Dockerfile incluso nell'addon, non viene scaricata da un registry esterno

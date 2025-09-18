@@ -19,14 +19,12 @@
   },
   "options": {
     "log_level": "info",
-    "shared_folders": ["/share/copyparty/data"],
     "config_folder": "/share/copyparty/config",
     "admin_user": "admin",
     "admin_password": "password"
   },
   "schema": {
     "log_level": "str",
-    "shared_folders": "list(str)",
     "config_folder": "str",
     "admin_user": "str",
     "admin_password": "str"

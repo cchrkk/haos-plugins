@@ -4,13 +4,16 @@
 mkdir -p "${CONFIG_FOLDER:-/share/copyparty/config}"
 mkdir -p /share/copyparty/data
 
-# Create shared folders
-for folder in "${SHARED_FOLDERS[@]}"; do
-  mkdir -p "$folder"
-done
+# Create directories to be mounted in copyparty data folder
+mkdir -p /homeassistant
+mkdir -p /addons
+mkdir -p /addon_configs
 
 # Set permissions
 chown -R copyparty:copyparty /share/copyparty
+chown -R copyparty:copyparty /homeassistant
+chown -R copyparty:copyparty /addons
+chown -R copyparty:copyparty /addon_configs
 
 # Create initial config if it doesn't exist
 CONFIG_FILE="${CONFIG_FOLDER:-/share/copyparty/config}/copyparty.conf"
@@ -20,14 +23,13 @@ if [ ! -f "$CONFIG_FILE" ]; then
 ${ADMIN_USER:-admin}:${ADMIN_PASSWORD:-password}:admin
 
 [volumes]
-# Shared folders
-$(for folder in "${SHARED_FOLDERS[@]}"; do
-  folder_name=$(basename "$folder")
-  echo "$folder_name:$folder"
-done)
-
 # Default data folder
 data:/share/copyparty/data
+
+# Home Assistant directories
+homeassistant:/homeassistant
+addons:/addons
+addon_configs:/addon_configs
 EOF
 fi
 
